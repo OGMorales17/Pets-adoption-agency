@@ -1,0 +1,18 @@
+{% extends 'home.html' %} {% block title %}.....{% endblock %} {% block content %}
+<h1>{{ pet.name }}</h1>
+
+{% if pet.photo_url %}
+<img class="img-fluid" src="{{ pet.photo_url }}"> {% endif %}
+
+<h2>Update</h2>
+
+<form method="POST">
+    {% include "_form.html" %}
+    <button class="btn btn-primary" type="submit">Update</button>
+    <!-- Currently, the next delete button is desable -->
+    <button class="btn btn-danger" formaction="/home{{ pet.id }}/delete" formmethod="POST">Delete Pet</button>
+</form>
+
+
+
+{%endblock %}
